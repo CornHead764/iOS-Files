@@ -1,11 +1,9 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "ios-files-bridge",
+	"name": "iOS Files Bridge",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Import and export files between your Obsidian vault and any iOS Files app storage provider (OneDrive, iCloud Drive, Google Drive, Dropbox, etc.).",
+	"author": "CornHead764",
 	"isDesktopOnly": false
 }

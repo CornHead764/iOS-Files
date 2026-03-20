@@ -1,8 +1,81 @@
-/*
+.ios-files-bridge-hidden {
+	display: none;
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+.ios-files-bridge-modal {
+	max-width: 500px;
+}
 
-If your plugin does not need CSS, delete this file.
+.ios-files-bridge-desc {
+	color: var(--text-muted);
+	margin-bottom: 1em;
+}
 
-*/
+.ios-files-bridge-browse {
+	display: flex;
+	justify-content: center;
+	margin: 1em 0;
+}
+
+.ios-files-bridge-file-list {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	padding: 0.75em;
+	margin: 1em 0;
+	max-height: 250px;
+	overflow-y: auto;
+}
+
+.ios-files-bridge-ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ios-files-bridge-ul li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.35em 0;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.ios-files-bridge-ul li:last-child {
+	border-bottom: none;
+}
+
+.ios-files-bridge-filename {
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	flex: 1;
+	margin-right: 0.5em;
+}
+
+.ios-files-bridge-filesize {
+	color: var(--text-muted);
+	font-size: var(--font-smaller);
+	flex-shrink: 0;
+}
+
+.ios-files-bridge-count {
+	color: var(--text-muted);
+	font-size: var(--font-smaller);
+	text-align: center;
+	margin-top: 0.5em;
+	margin-bottom: 0;
+}
+
+.ios-files-bridge-empty {
+	color: var(--text-faint);
+	text-align: center;
+	margin: 0;
+}
+
+.ios-files-bridge-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.5em;
+	margin-top: 1em;
+}

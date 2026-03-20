@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "obsidian-ios-files-bridge",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Import and export files between Obsidian and iOS Files app storage providers",
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
