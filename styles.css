@@ -79,3 +79,43 @@
 	gap: 0.5em;
 	margin-top: 1em;
 }
+
+.ios-files-bridge-sync-status {
+	margin: 1em 0;
+}
+
+.ios-files-bridge-progress {
+	margin: 0.5em 0;
+}
+
+.ios-files-bridge-progress-bar {
+	width: 100%;
+	height: 6px;
+	border-radius: var(--radius-s);
+}
+
+.ios-files-bridge-progress-file {
+	color: var(--text-muted);
+	font-size: var(--font-smaller);
+	margin-top: 0.25em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ios-files-bridge-sync-summary p {
+	margin: 0.25em 0;
+}
+
+.ios-files-bridge-sync-done {
+	font-weight: 500;
+	margin-bottom: 0.5em;
+}
+
+.ios-files-bridge-error {
+	color: var(--text-error);
+}
+
+.ios-files-bridge-warning {
+	color: var(--text-warning);
+}
