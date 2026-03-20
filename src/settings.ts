@@ -49,5 +49,32 @@ export class FileBridgeSettingTab extends PluginSettingTab {
 					this.plugin.settings.confirmOverwrite = value;
 					await this.plugin.saveSettings();
 				}));
+
+		new Setting(containerEl).setName('Vault sync').setHeading();
+
+		const manifest = this.plugin.syncManifest;
+		if (manifest) {
+			const lastSync = new Date(manifest.lastSyncTime);
+			const fileCount = Object.keys(manifest.files).length;
+			containerEl.createEl('p', {
+				text: `Sync active — tracking ${fileCount} files. Last synced: ${lastSync.toLocaleString()}.`,
+				cls: 'setting-item-description',
+			});
+		} else {
+			containerEl.createEl('p', {
+				text: 'No sync configured. Use the "set up vault sync" command to get started.',
+				cls: 'setting-item-description',
+			});
+		}
+
+		new Setting(containerEl)
+			.setName('Delete removed files on pull')
+			.setDesc('When pulling updates, delete vault files that no longer exist in the remote folder.')
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.syncDeleteRemovedFiles)
+				.onChange(async (value) => {
+					this.plugin.settings.syncDeleteRemovedFiles = value;
+					await this.plugin.saveSettings();
+				}));
 	}
 }
