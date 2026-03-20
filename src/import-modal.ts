@@ -1,4 +1,4 @@
-import {App, Modal, Setting, Notice} from 'obsidian';
+import {App, Modal, Notice, Setting} from 'obsidian';
 import type {FileBridge} from './file-bridge';
 import type {FileBridgeSettings} from './types';
 
@@ -20,9 +20,9 @@ export class ImportModal extends Modal {
 		contentEl.empty();
 		contentEl.addClass('ios-files-bridge-modal');
 
-		contentEl.createEl('h2', {text: 'Import from Files app'});
+		new Setting(contentEl).setName('Import from files app').setHeading();
 		contentEl.createEl('p', {
-			text: 'Select files from any iOS Files app provider (OneDrive, iCloud Drive, Google Drive, Dropbox, etc.). Files will be saved to your vault.',
+			text: 'Select files from any storage provider in the files app (OneDrive, iCloud Drive, Google Drive, Dropbox, etc.). Files will be saved to your vault.',
 			cls: 'ios-files-bridge-desc',
 		});
 
@@ -36,7 +36,7 @@ export class ImportModal extends Modal {
 			type: 'file',
 			attr: {multiple: 'true'},
 		});
-		fileInput.style.display = 'none';
+		fileInput.addClass('ios-files-bridge-hidden');
 		fileInput.addEventListener('change', () => {
 			this.selectedFiles = fileInput.files;
 			this.renderFileList();
@@ -64,7 +64,7 @@ export class ImportModal extends Modal {
 			cls: 'mod-cta',
 		});
 		this.importBtn.disabled = true;
-		this.importBtn.addEventListener('click', () => this.doImport());
+		this.importBtn.addEventListener('click', () => { void this.doImport(); });
 	}
 
 	private renderFileList() {

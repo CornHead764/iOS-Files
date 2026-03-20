@@ -131,7 +131,7 @@ export class FileBridge {
 		const a = document.createElement('a');
 		a.href = url;
 		a.download = filename;
-		a.style.display = 'none';
+		a.addClass('ios-files-bridge-hidden');
 		document.body.appendChild(a);
 		a.click();
 		// Clean up after a brief delay

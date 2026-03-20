@@ -23,8 +23,8 @@ export class ExportModal extends FuzzySuggestModal<TFile> {
 		return item.path;
 	}
 
-	async onChooseItem(item: TFile): Promise<void> {
-		await this.bridge.exportFile(item);
+	onChooseItem(item: TFile): void {
+		void this.bridge.exportFile(item);
 	}
 }
 
@@ -70,7 +70,7 @@ export class BulkExportModal extends FuzzySuggestModal<string> {
 		return item;
 	}
 
-	async onChooseItem(item: string): Promise<void> {
+	onChooseItem(item: string): void {
 		const folder = item === '/  (entire vault)' ? undefined : item;
 		const files = this.bridge.getVaultFiles(folder);
 
@@ -80,6 +80,6 @@ export class BulkExportModal extends FuzzySuggestModal<string> {
 		}
 
 		new Notice(`Exporting ${files.length} file${files.length !== 1 ? 's' : ''}...`);
-		await this.bridge.exportMultipleFiles(files);
+		void this.bridge.exportMultipleFiles(files);
 	}
 }

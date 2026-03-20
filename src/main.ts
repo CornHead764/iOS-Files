@@ -14,14 +14,14 @@ export default class IOSFilesBridge extends Plugin {
 		this.bridge = new FileBridge(this.app, this.settings);
 
 		// Ribbon icon: import files from iOS Files app
-		this.addRibbonIcon('download', 'Import from Files app', () => {
+		this.addRibbonIcon('download', 'Import from files app', () => {
 			new ImportModal(this.app, this.bridge, this.settings).open();
 		});
 
 		// Command: import files
 		this.addCommand({
 			id: 'import-files',
-			name: 'Import files from Files app',
+			name: 'Import files from files app',
 			callback: () => {
 				new ImportModal(this.app, this.bridge, this.settings).open();
 			},
@@ -30,12 +30,12 @@ export default class IOSFilesBridge extends Plugin {
 		// Command: export current file
 		this.addCommand({
 			id: 'export-current-file',
-			name: 'Export current file to Files app',
+			name: 'Export current file to files app',
 			checkCallback: (checking: boolean) => {
 				const activeFile = this.app.workspace.getActiveFile();
 				if (!activeFile) return false;
 				if (!checking) {
-					ExportCurrentFileCommand.run(this.app, this.bridge, this.settings);
+					void ExportCurrentFileCommand.run(this.app, this.bridge, this.settings);
 				}
 				return true;
 			},
@@ -44,7 +44,7 @@ export default class IOSFilesBridge extends Plugin {
 		// Command: export by search
 		this.addCommand({
 			id: 'export-file-search',
-			name: 'Export a vault file to Files app',
+			name: 'Export a vault file to files app',
 			callback: () => {
 				new ExportModal(this.app, this.bridge, this.settings).open();
 			},
@@ -53,7 +53,7 @@ export default class IOSFilesBridge extends Plugin {
 		// Command: bulk export a folder
 		this.addCommand({
 			id: 'export-folder',
-			name: 'Export folder to Files app',
+			name: 'Export folder to files app',
 			callback: () => {
 				new BulkExportModal(this.app, this.bridge, this.settings).open();
 			},

@@ -13,9 +13,9 @@ export class FileBridgeSettingTab extends PluginSettingTab {
 		const {containerEl} = this;
 		containerEl.empty();
 
-		containerEl.createEl('h2', {text: 'iOS Files Bridge'});
+		new Setting(containerEl).setName('File import and export').setHeading();
 		containerEl.createEl('p', {
-			text: 'Import and export files between your vault and any iOS Files app provider (OneDrive, iCloud Drive, Google Drive, Dropbox, etc.).',
+			text: 'Import and export files between your vault and any storage provider in the files app (OneDrive, iCloud Drive, Google Drive, Dropbox, etc.).',
 			cls: 'setting-item-description',
 		});
 
@@ -23,7 +23,7 @@ export class FileBridgeSettingTab extends PluginSettingTab {
 			.setName('Import folder')
 			.setDesc('Vault folder where imported files are saved. Created automatically if it does not exist.')
 			.addText(text => text
-				.setPlaceholder('iOS Files')
+				.setPlaceholder('iOS files')
 				.setValue(this.plugin.settings.importFolder)
 				.onChange(async (value) => {
 					this.plugin.settings.importFolder = value.trim() || 'iOS Files';
